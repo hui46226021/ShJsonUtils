@@ -101,7 +101,7 @@ Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
 bintray {
     user = "mrharlan"    //读取 local.properties 文件里面的 bintray.user
-    key = "986672f9038bbd4782359b9a25cc40c98956ae59"   //读取 local.properties 文件里面的 bintray.apikey
+    key = ""   //读取 local.properties 文件里面的 bintray.apikey
     configurations = ['archives']
     pkg {
         repo = "maven"
