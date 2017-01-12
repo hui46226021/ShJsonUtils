@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ShJsonUtils.iml" filepath="$PROJECT_DIR$/ShJsonUtils.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/shJson/shJson.iml" filepath="$PROJECT_DIR$/shJson/shJson.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shjson/shjson.iml" filepath="$PROJECT_DIR$/shjson/shjson.iml" />
     </modules>
   </component>
 </project>
