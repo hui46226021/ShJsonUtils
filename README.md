@@ -5,13 +5,13 @@ Download the latest JAR or grab via Maven:
 <dependency>
   <groupId>com.sh.shjsonutils</groupId>
   <artifactId>shjson</artifactId>
-  <version>1.0.7</version>
+  <version>1.0.8</version>
   <type>pom</type>
 </dependency>
 ~~~
 or Gradle:
 ~~~gradle
-compile 'com.sh.shjsonutils:shjson:1.0.7'
+compile 'com.sh.shjsonutils:shjson:1.0.8'
 ~~~
 #使用方法
 ~~~java
