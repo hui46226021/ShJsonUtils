@@ -1,4 +1,6 @@
-package com.sh.shjsonutils;
+package com.sh.zsh.code;
+
+import java.util.List;
 
 /**
  * Created by zhush on 2017/1/11.
@@ -9,6 +11,7 @@ public class People {
     String firstName;
     String lastName;
     String email;
+    List<Look> look;
 
     public String getFirstName() {
         return firstName;
@@ -34,12 +37,21 @@ public class People {
         this.email = email;
     }
 
+    public List<Look> getLook() {
+        return look;
+    }
+
+    public void setLook(List<Look> look) {
+        this.look = look;
+    }
+
     @Override
     public String toString() {
         return "People{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
+                ", look=" + look +
                 '}';
     }
 }

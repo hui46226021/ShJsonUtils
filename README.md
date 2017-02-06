@@ -3,21 +3,21 @@ android json解析框架
 Download the latest JAR or grab via Maven:
 ~~~xml
 <dependency>
-  <groupId>com.sh.shjsonutils</groupId>
+  <groupId>com.sh.zsh.code</groupId>
   <artifactId>shjson</artifactId>
-  <version>1.0.8</version>
+  <version>1.2.2</version>
   <type>pom</type>
 </dependency>
 ~~~
 or Gradle:
 ~~~gradle
-compile 'com.sh.shjsonutils:shjson:1.0.8'
+compile 'com.sh.zsh.code:shjson:1.2.2'
 ~~~
 #使用方法
 ~~~java
  String jsonStr ="{\"people\":[{\"firstName\":\"Brett\",\"lastName\":\"McLaughlin\",\"email\":\"aaaa\"},{\"firstName\":\"Jason\",\"lastName\":\"Hunter\",\"email\":\"bbbb\"},{\"firstName\":\"Elliotte\",\"lastName\":\"Harold\",\"email\":\"cccc\"}],\"data\":{\"people\":[{\"firstName\":\"Brett\",\"lastName\":\"McLaughlin\",\"email\":\"aaaa\"},{\"firstName\":\"Jason\",\"lastName\":\"Hunter\",\"email\":\"bbbb\"},{\"firstName\":\"Elliotte\",\"lastName\":\"Harold\",\"email\":\"cccc\"}],\"animal\":\"cat\",\"look\":{\"head\":\"1个\",\"tail\":\"1条\",\"leg\":4}}}";
    JSONUtil jsonUtil = new JSONUtil(jsonStr);
-   List<People> peoples =jsonUtil.getList(People.class,"people");
+   List<People> peoples =jsonUtil.getList(People.class,Look.class,"people");
    List<People> peoples2 =jsonUtil.getList(People.class,"data.people");
    String animal = jsonUtil.getObject(String.class,"data.animal");
    Look look = jsonUtil.getObject(Look.class,"data.look");
