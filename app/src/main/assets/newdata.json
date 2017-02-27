@@ -1,0 +1,90 @@
+{
+  "people": [
+    {
+      "firstName": "Brett",
+      "lastName": "McLaughlin",
+      "email": "aaaa",
+      "look": [
+        {
+          "head": "1个",
+          "tail": "1条",
+          "leg": 4,
+          "enList": [
+            {
+              "key": "第一个key",
+              "value": "第一个value"
+            },
+            {
+              "key": "第二个key",
+              "value": "第二个value"
+            }
+          ]
+        },
+        {
+          "head": "2个",
+          "tail": "2条",
+          "leg": 5
+        }
+      ]
+    },
+    {
+      "firstName": "Jason",
+      "lastName": "Hunter",
+      "email": "bbbb",
+      "look": [
+        {
+          "head": "1个",
+          "tail": "1条",
+          "leg": 4
+        },
+        {
+          "head": "2个",
+          "tail": "2条",
+          "leg": 5
+        }
+      ]
+    },
+    {
+      "firstName": "Elliotte",
+      "lastName": "Harold",
+      "email": "cccc",
+      "look": [
+        {
+          "head": "1个",
+          "tail": "1条",
+          "leg": 4
+        },
+        {
+          "head": "2个",
+          "tail": "2条",
+          "leg": 5
+        }
+      ]
+    }
+  ],
+  "data": {
+    "people": [
+      {
+        "firstName": "Brett",
+        "lastName": "McLaughlin",
+        "email": "aaaa"
+      },
+      {
+        "firstName": "Jason",
+        "lastName": "Hunter",
+        "email": "bbbb"
+      },
+      {
+        "firstName": "Elliotte",
+        "lastName": "Harold",
+        "email": "cccc"
+      }
+    ],
+    "animal": "cat",
+    "look": {
+      "head": "1个",
+      "tail": "1条",
+      "leg": 4
+    }
+  }
+}

@@ -5,19 +5,22 @@ Download the latest JAR or grab via Maven:
 <dependency>
   <groupId>com.sh.zsh.code</groupId>
   <artifactId>shjson</artifactId>
-  <version>1.2.2</version>
+  <version>1.2.3</version>
   <type>pom</type>
 </dependency>
 ~~~
 or Gradle:
 ~~~gradle
-compile 'com.sh.zsh.code:shjson:1.2.2'
+compile 'com.sh.zsh.code:shjson:1.2.3'
 ~~~
 #使用方法
 ~~~java
- String jsonStr ="{\"people\":[{\"firstName\":\"Brett\",\"lastName\":\"McLaughlin\",\"email\":\"aaaa\"},{\"firstName\":\"Jason\",\"lastName\":\"Hunter\",\"email\":\"bbbb\"},{\"firstName\":\"Elliotte\",\"lastName\":\"Harold\",\"email\":\"cccc\"}],\"data\":{\"people\":[{\"firstName\":\"Brett\",\"lastName\":\"McLaughlin\",\"email\":\"aaaa\"},{\"firstName\":\"Jason\",\"lastName\":\"Hunter\",\"email\":\"bbbb\"},{\"firstName\":\"Elliotte\",\"lastName\":\"Harold\",\"email\":\"cccc\"}],\"animal\":\"cat\",\"look\":{\"head\":\"1个\",\"tail\":\"1条\",\"leg\":4}}}";
+
    JSONUtil jsonUtil = new JSONUtil(jsonStr);
-   List<People> peoples =jsonUtil.getList(People.class,Look.class,"people");
+   //二维数组
+   List<People> peoples =jsonUtil.getList(People.class,"people",Look.class);
+   //三维数组
+   List<People> peoples =jsonUtil.getList(People.class,"people",Look.class,En.class);
    List<People> peoples2 =jsonUtil.getList(People.class,"data.people");
    String animal = jsonUtil.getObject(String.class,"data.animal");
    Look look = jsonUtil.getObject(Look.class,"data.look");

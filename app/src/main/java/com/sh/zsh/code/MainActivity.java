@@ -2,11 +2,17 @@ package com.sh.zsh.code;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.JsonReader;
+import android.util.JsonToken;
 import android.util.Log;
 
 import com.sh.shjson.JSONUtil;
 import com.sh.shjsonutils.R;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -15,90 +21,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        String jsonStr ="{\n" +
-                "    \"people\": [\n" +
-                "        {\n" +
-                "            \"firstName\": \"Brett\",\n" +
-                "            \"lastName\": \"McLaughlin\",\n" +
-                "            \"email\": \"aaaa\",\n" +
-                "            \"look\": [\n" +
-                "                {\n" +
-                "                    \"head\": \"1个\",\n" +
-                "                    \"tail\": \"1条\",\n" +
-                "                    \"leg\": 4\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"head\": \"2个\",\n" +
-                "                    \"tail\": \"2条\",\n" +
-                "                    \"leg\": 5\n" +
-                "                }\n" +
-                "            ]\n" +
-                "        },\n" +
-                "        {\n" +
-                "            \"firstName\": \"Jason\",\n" +
-                "            \"lastName\": \"Hunter\",\n" +
-                "            \"email\": \"bbbb\",\n" +
-                "            \"look\": [\n" +
-                "                {\n" +
-                "                    \"head\": \"1个\",\n" +
-                "                    \"tail\": \"1条\",\n" +
-                "                    \"leg\": 4\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"head\": \"2个\",\n" +
-                "                    \"tail\": \"2条\",\n" +
-                "                    \"leg\": 5\n" +
-                "                }\n" +
-                "            ]\n" +
-                "        },\n" +
-                "        {\n" +
-                "            \"firstName\": \"Elliotte\",\n" +
-                "            \"lastName\": \"Harold\",\n" +
-                "            \"email\": \"cccc\",\n" +
-                "            \"look\": [\n" +
-                "                {\n" +
-                "                    \"head\": \"1个\",\n" +
-                "                    \"tail\": \"1条\",\n" +
-                "                    \"leg\": 4\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"head\": \"2个\",\n" +
-                "                    \"tail\": \"2条\",\n" +
-                "                    \"leg\": 5\n" +
-                "                }\n" +
-                "            ]\n" +
-                "        }\n" +
-                "    ],\n" +
-                "    \"data\": {\n" +
-                "        \"people\": [\n" +
-                "            {\n" +
-                "                \"firstName\": \"Brett\",\n" +
-                "                \"lastName\": \"McLaughlin\",\n" +
-                "                \"email\": \"aaaa\"\n" +
-                "            },\n" +
-                "            {\n" +
-                "                \"firstName\": \"Jason\",\n" +
-                "                \"lastName\": \"Hunter\",\n" +
-                "                \"email\": \"bbbb\"\n" +
-                "            },\n" +
-                "            {\n" +
-                "                \"firstName\": \"Elliotte\",\n" +
-                "                \"lastName\": \"Harold\",\n" +
-                "                \"email\": \"cccc\"\n" +
-                "            }\n" +
-                "        ],\n" +
-                "        \"animal\": \"cat\",\n" +
-                "        \"look\": {\n" +
-                "            \"head\": \"1个\",\n" +
-                "            \"tail\": \"1条\",\n" +
-                "            \"leg\": 4\n" +
-                "        }\n" +
-                "    }\n" +
-                "}";
-        jsonStr = jsonStr.replace("\n","");
-        jsonStr = jsonStr.replace(" ","");
+        String jsonStr =getJson();
         JSONUtil jsonUtil = new JSONUtil(jsonStr);
-        List<People> peoples =jsonUtil.getList(People.class,Look.class,"people");
+        List<People> peoples3 =jsonUtil.getList(People.class,"people",Look.class,En.class);
+        Log.e("MainActivity",peoples3.toString());
+        List<People> peoples =jsonUtil.getList(People.class,"people",Look.class);
         Log.e("MainActivity",peoples.toString());
         List<People> peoples2 =jsonUtil.getList(People.class,"data.people");
         Log.e("MainActivity",peoples2.toString());
@@ -106,5 +33,25 @@ public class MainActivity extends AppCompatActivity {
         Log.e("MainActivity",animal);
         Look look = jsonUtil.getObject(Look.class,"data.look");
         Log.e("MainActivity",look.toString());
+    }
+
+
+    public String getJson(){
+        StringBuilder builder = new StringBuilder();
+        try {
+            InputStreamReader isr = new InputStreamReader(getAssets().open("newdata.json"),"UTF-8");
+            BufferedReader br = new BufferedReader(isr);
+            String line;
+
+            while((line = br.readLine()) != null){
+                builder.append(line);
+            }
+            br.close();
+            isr.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return builder.toString();
     }
 }
